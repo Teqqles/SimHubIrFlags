@@ -47,9 +47,9 @@ void IrForLedStrip::setup(){
 }
 
 void IrForLedStrip::sendNecColors(IrFlag color) {
-  if (VERBOSE_SERIAL_OUTPUT) {
-    debugPrintToSerial("IR Code: ", color.mainCode, HEX);
-  } 
+#if defined(VERBOSE_SERIAL_OUTPUT)
+  debugPrintToSerial("IR Code: ", color.mainCode, HEX);
+#endif 
   IrSender.sendNECMSB(color.mainCode, 32);
 }
 

@@ -26,21 +26,21 @@
 #include <Arduino.h>
 
 void debugPrintToSerial(const char *text) {
-  if (VERBOSE_SERIAL_OUTPUT) {
+#if defined(VERBOSE_SERIAL_OUTPUT)
     Serial.println(text);
-  }
+#endif
 }
 
 void debugPrintToSerial(const char *prefix, const char *text) {
-  if (VERBOSE_SERIAL_OUTPUT) {
+#if defined(VERBOSE_SERIAL_OUTPUT)
     Serial.print(prefix);  
     Serial.println(text);
-  }
+#endif
 }
 
 void debugPrintToSerial(const char *prefix, int body, int base) {
-  if (VERBOSE_SERIAL_OUTPUT) {
+#if defined(VERBOSE_SERIAL_OUTPUT)
     Serial.print(prefix);  
     Serial.println(body, base);
-  }
+#endif
 }
