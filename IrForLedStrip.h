@@ -79,7 +79,7 @@ const IrFlags remoteCodes {
   {0xFF18E7, false}, // on my 44 button LED strip flash is always white so disabled
   {0xFF0AF5, false},
   {0xFF22DD, true}, // white with flash
-  {0xFF9A65, false},
+  {0xFFA25D, false},
   {0xFFD02F, false}
 };
 // color codes can be found @
