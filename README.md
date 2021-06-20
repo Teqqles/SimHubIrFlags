@@ -9,7 +9,9 @@ Diagrams and instructions to follow.
 
 ## Compiling Instructions
 
-Download a [release](https://github.com/Teqqles/SimHubIrFlags/releases) of the software into an appropriate folder.  
+Download a [release](https://github.com/Teqqles/SimHubIrFlags/releases) of the software into an appropriate folder. 
+
+*Note: Arduino IDE likes the parent folder of a project to have the same name as the ino file so remove the version of the parent folder after extracting* 
 
 Follow instructions on installing [Arduino IDE](https://www.arduino.cc/en/software) and download drivers for your Arduino compatible device.  In my case that 
 is the Maker Nano and drivers can be found in <http://www.wch.cn/downloads/CH341SER_ZIP.html>, this project should work with other devices but you'll likely have

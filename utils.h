@@ -26,9 +26,9 @@
 #define debugutils
 
 // If you want to see what is going on under the hood
-#define VERBOSE_SERIAL_OUTPUT false
+//#define VERBOSE_SERIAL_OUTPUT
 
-void serialPrintPrefix(const char *prefix);
+void debugPrintToSerial(const char *text);
 void debugPrintToSerial(const char *prefix, const char *text);
 void debugPrintToSerial(const char *prefix, int body, int base);
 #endif

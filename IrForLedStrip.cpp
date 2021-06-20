@@ -22,8 +22,8 @@
  *
  */
 
-#include "ir-for-led-strip.h"
-#include "utils.h"
+#include "IrForLedStrip.h"
+#include "Utils.h"
 #include <Arduino.h>
 #include <IRremote.h>
 
@@ -40,14 +40,16 @@ void IrForLedStrip::setup(){
 #else
   Serial.println(IR_SEND_PIN);
 #endif
+#if not defined(DISABLE_POWER_ON)
   sendNecColors(remoteCodes.power);
+#endif
   sendNecColors(remoteCodes.neutral); // Power on and put us in a neutral color
 }
 
 void IrForLedStrip::sendNecColors(IrFlag color) {
-  if (VERBOSE_SERIAL_OUTPUT) {
-    debugPrintToSerial("IR Code: ", color.mainCode, HEX);
-  } 
+#if defined(VERBOSE_SERIAL_OUTPUT)
+  debugPrintToSerial("IR Code: ", color.mainCode, HEX);
+#endif 
   IrSender.sendNECMSB(color.mainCode, 32);
 }
 
@@ -63,32 +65,36 @@ void IrForLedStrip::showFlag(IrFlag color) {
 }
 
 void IrForLedStrip::demoPattern(){
-  debugPrintToSerial("", "Power On");
+#if not defined(DISABLE_POWER_ON)
+  debugPrintToSerial("Power On");
   sendNecColors(remoteCodes.power);
-  delay(2000);
-  debugPrintToSerial("", "Red Flag");
+  delay(2000);  
+#else
+  debugPrintToSerial("Power On disabled");	
+#endif	
+  debugPrintToSerial("Red Flag");
   sendNecColors(remoteCodes.red, remoteCodes.flash);
   delay(2000);
-  debugPrintToSerial("", "Pink Flag");
+  debugPrintToSerial("Pink Flag");
   sendNecColors(remoteCodes.pink, remoteCodes.flash);
   delay(2000);  
-  debugPrintToSerial("", "Yellow Flag");
+  debugPrintToSerial("Yellow Flag");
   sendNecColors(remoteCodes.yellow, remoteCodes.flash);
   delay(2000); 
-  debugPrintToSerial("", "Orange Flag");
+  debugPrintToSerial("Orange Flag");
   sendNecColors(remoteCodes.orange, remoteCodes.flash);
   delay(2000);    
-  debugPrintToSerial("", "White Flag - Slow Car/Final Lap");
+  debugPrintToSerial("White Flag - Slow Car/Final Lap");
   sendNecColors(remoteCodes.white, remoteCodes.flash);  
   delay(2000);  
-  debugPrintToSerial("", "Green Flag");
+  debugPrintToSerial("Green Flag");
   sendNecColors(remoteCodes.green, remoteCodes.flash);
   delay(2000);    
-  debugPrintToSerial("", "Blue Flag");
+  debugPrintToSerial("Blue Flag");
   sendNecColors(remoteCodes.blue, remoteCodes.flash);  
   delay(2000);    
-  debugPrintToSerial("", "Neutral State");
+  debugPrintToSerial("Neutral State");
   sendNecColors(remoteCodes.neutral, remoteCodes.flash);  
   delay(2000);     
-  debugPrintToSerial("", "End of cycle");
+  debugPrintToSerial("End of cycle");
 }
