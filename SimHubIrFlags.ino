@@ -22,8 +22,8 @@
  *
  */
 
-#include "ir-for-led-strip.h"
-#include "utils.h"
+#include "IrForLedStrip.h"
+#include "Utils.h"
 #include <IRremoteInt.h>
 #include <ArduinoJson.h>
 
