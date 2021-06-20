@@ -32,6 +32,12 @@
 //#define REMOTE_24_KEY
 #define REMOTE_44_KEY
 
+#define DISABLE_POWER_ON /* Some remotes share power on/off functions so we provide
+							a way to disable this if you have trouble.  Comment this
+                            if you'd like your led strip to switch itself on before
+                            every game.							
+						 */
+
 struct IrFlag {
   unsigned long mainCode;
   bool useFlash;
