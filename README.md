@@ -5,7 +5,20 @@ IR light strips you are using.  Some for example have more latency than others, 
 
 ## Circuit 
 
-Diagrams and instructions to follow.
+![IR Circuit](./images/IrRemoteFlagLights_bb.png)
+
+## Parts
+
+The parts I used in this project were:
+
+- Cytron Maker Nano - https://thepihut.com/products/maker-nano <br>
+  ![Maker Nano](./images/maker-nano.jpg)
+- 47 Ohm 1/4w Resistor - https://www.amazon.co.uk/Watt-Carbon-Resistor-0-25W-Tolerance/dp/B08Y2S1S6Z <br>
+  ![Resistor](./images/47-ohm-resistor_.jpg)
+- 940nm IR LED 5mm Package - https://thepihut.com/products/super-bright-5mm-ir-led <br>
+  ![IR LED](./images/ir-led.jpg)
+- Clear fronted junction box (83mmx58mmx33mm) - https://www.amazon.co.uk/gp/product/B072FS3W7X
+- Optionally a Perma-proto quarter sized board - https://thepihut.com/products/adafruit-perma-proto-quarter-sized-breadboard-pcb-single
 
 ## Compiling Instructions
 
@@ -19,7 +32,7 @@ to change the IR_SEND_PIN (defaults to 10)
 
 Install the [ArduinoJson](https://arduinojson.org/v6/doc/installation/) and [RemoteIR](https://www.ardu-badge.com/IRremote/zip) libraries
 
-To compile this application for the IR light strip type you are using you can modify values in [ir-for-led-strip.h](./ir-for-led-strip.h)
+To compile this application for the IR light strip type you are using you can modify values in [IrForLedStrip.h](./IrForLedStrip.h)
 
 Select the Arduino Nano as your device (Tools>Board>Arduino AVR Boards) and the appropriate com port for your device.
 
